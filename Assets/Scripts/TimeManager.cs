@@ -35,7 +35,17 @@ public class TimeManager : MonoBehaviour
         int ss = t % 60;
         int mm = t / 60;
 
-        string i = mm.ToString() + " : " + ss.ToString();
+        string i;
+
+        if(ss < 10)
+        {
+            i = mm.ToString() + " : 0" + ss.ToString();
+        }
+        else
+        {
+            i = mm.ToString() + " : " + ss.ToString();
+        }
+        
         return i;
     }
 }
