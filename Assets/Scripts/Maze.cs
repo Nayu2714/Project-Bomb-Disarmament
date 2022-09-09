@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Maze : MonoBehaviour
 {
+    public bool completed = false;
+
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject goal;
 
     List<int[,]> maze = new List<int[,]>();
     private int[,] currentMaze = new int[11, 11];
@@ -17,6 +20,9 @@ public class Maze : MonoBehaviour
 
     [SerializeField] private int plx;
     [SerializeField] private int ply;
+
+    [SerializeField] private int gox;
+    [SerializeField] private int goy;
 
     //0=床 1=壁 2=プレイヤー 3=ゴール 
 
@@ -94,14 +100,18 @@ public class Maze : MonoBehaviour
         plx = 2 * Random.Range(1, 5) - 1;//PlayerのX座標決定
         ply = 2 * Random.Range(1, 5) - 1;//PlayerのY座標決定
 
+        gox = 2 * Random.Range(1, 5) - 1;
+        goy = 2 * Random.Range(1, 5) - 1;
+
         currentMaze[ply, plx] = 2;//[y,x]軸が逆なので気を付ける
+        currentMaze[goy, gox] = 3;
 
         CreateMaze();
     }
 
     private void Update()
     {
-        MovePlayer();
+        if (!completed) MovePlayer();
     }
 
     private void CreateMaze()
@@ -132,6 +142,10 @@ public class Maze : MonoBehaviour
                 {
                     Instantiate(player, a, Quaternion.identity);
                 }
+                else if (t == 3)
+                {
+                    Instantiate(goal, a, Quaternion.identity);
+                }
 
                 a += new Vector3(0f, 0f, -1.5f);
             }
@@ -149,15 +163,21 @@ public class Maze : MonoBehaviour
             if (currentMaze[ply - 1, plx] == 1)
             {
                 Debug.Log("ouch!");
+                return;
             }
-            else
-            {
-                currentMaze[ply - 2, plx] = 2;
-                currentMaze[ply, plx] = 0;
 
-                ply -= 2;
-                Debug.Log(plx + " , " + ply);
+            if (currentMaze[ply - 2, plx] == 3)
+            {
+                Debug.Log("clear!");
+                completed = true;
             }
+
+            currentMaze[ply - 2, plx] = 2;
+            currentMaze[ply, plx] = 0;
+
+            ply -= 2;
+            Debug.Log(plx + " , " + ply);
+
             CreateMaze();
         }
 
@@ -166,15 +186,21 @@ public class Maze : MonoBehaviour
             if (currentMaze[ply, plx + 1] == 1)
             {
                 Debug.Log("ouch!");
+                return;
             }
-            else
-            {
-                currentMaze[ply, plx + 2] = 2;
-                currentMaze[ply, plx] = 0;
 
-                plx += 2;
-                Debug.Log(plx + " , " + ply);
+            if (currentMaze[ply, plx + 2] == 3)
+            {
+                Debug.Log("clear!");
+                completed = true;
             }
+
+            currentMaze[ply, plx + 2] = 2;
+            currentMaze[ply, plx] = 0;
+
+            plx += 2;
+            Debug.Log(plx + " , " + ply);
+
             CreateMaze();
         }
 
@@ -183,15 +209,21 @@ public class Maze : MonoBehaviour
             if (currentMaze[ply, plx - 1] == 1)
             {
                 Debug.Log("ouch!");
+                return;
             }
-            else
-            {
-                currentMaze[ply, plx - 2] = 2;
-                currentMaze[ply, plx] = 0;
 
-                plx -= 2;
-                Debug.Log(plx + " , " + ply);
+            if (currentMaze[ply, plx - 2] == 3)
+            {
+                Debug.Log("clear!");
+                completed = true;
             }
+
+            currentMaze[ply, plx - 2] = 2;
+            currentMaze[ply, plx] = 0;
+
+            plx -= 2;
+            Debug.Log(plx + " , " + ply);
+
             CreateMaze();
         }
 
@@ -200,17 +232,28 @@ public class Maze : MonoBehaviour
             if (currentMaze[ply + 1, plx] == 1)
             {
                 Debug.Log("ouch!");
+                return;
             }
-            else
-            {
-                currentMaze[ply + 2, plx] = 2;
-                currentMaze[ply, plx] = 0;
 
-                ply += 2;
-                Debug.Log(plx + " , " + ply);
+            if (currentMaze[ply + 2, plx] == 3)
+            {
+                Debug.Log("clear!");
+                completed = true;
             }
+
+            currentMaze[ply + 2, plx] = 2;
+            currentMaze[ply, plx] = 0;
+
+            ply += 2;
+            Debug.Log(plx + " , " + ply);
+
             CreateMaze();
         }
+    }
+
+    private void CheckGoal()
+    {
+
     }
 
 }
