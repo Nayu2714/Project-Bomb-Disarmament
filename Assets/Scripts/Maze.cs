@@ -144,7 +144,7 @@ public class Maze : MonoBehaviour
         if (!completed) MovePlayer(currentMaze);
     }
 
-    private void CreateMaze(int[,] maze)
+    private void CreateMaze(int[,] maze)/*　迷路のオブジェクト生成関数　*/
     {
         GameObject[] m = GameObject.FindGameObjectsWithTag("Maze");
         foreach (GameObject q in m)
