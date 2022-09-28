@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6b1d2b9c62da925429f19b87fddc4071
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - modulePre: {instanceID: 0}
+  - wire: {instanceID: 0}
+  - cuttedwire: {instanceID: 0}
+  - cursorPre: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

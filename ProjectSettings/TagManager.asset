@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wire2
+  - wire3
+  - wire4
+  - wire5
+  - wire6
+  - wire1
+  - upper
+  - lower
   layers:
   - Default
   - TransparentFX
