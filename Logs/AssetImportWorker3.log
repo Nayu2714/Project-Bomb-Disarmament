@@ -1,0 +1,34 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.2f1 (d6360bedb9a0) revision 14038539'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'ja' Physical Memory: 7542 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+received signal from system: SIGSEGV
+Obtained 27 stack frames
+0x00007ff62a79b5cd (Unity) 
+0x00007ff62a7a2329 (Unity) 
+0x00007ff62b709713 (Unity) 
+0x00007ff62a7a1366 (Unity) 
+0x00007ff62a79abfc (Unity) 
+0x00007ff62ca8b8a2 (Unity) 
+0x00007ff62cb4adcc (Unity) 
+0x00007ff62ca57f60 (Unity) 
+0x00007ff981e3235f (ntdll) 
+0x00007ff981de14a4 (ntdll) 
+0x00007ff981e30e8e (ntdll) 
+0x00007ff62a024800 (Unity) 
+0x00007ff62a020b46 (Unity) 
+0x00007ff62a02b72e (Unity) 
+0x00007ff629fbc797 (Unity) 
+0x00007ff629fa5a5a (Unity) 
+0x00007ff62ae2af75 (Unity) 
+0x00007ff62bc27f65 (Unity) 
+0x00007ff62bc289ef (Unity) 
+0x00007ff62bc28882 (Unity) 
+0x00007ff62bc24aca (Unity) 
+0x00007ff62bc26c76 (Unity) 
+0x00007ff62b2b15bb (Unity) 
+0x00007ff62b713d83 (Unity) 
+0x00007ff62ca3582e (Unity) 
+0x00007ff980637034 (KERNEL32) BaseThreadInitThunk
+0x00007ff981de26a1 (ntdll) 
+

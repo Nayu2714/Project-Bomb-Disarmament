@@ -57,8 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TimeManager.cs" />
-    <Compile Include="Assets\Scripts\Maze.cs" />
+    <Compile Include="Assets\Scripts\CursorManager.cs" />
     <Compile Include="Assets\Scripts\MainMaster.cs" />
+    <Compile Include="Assets\Scripts\Maze.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 04a523d28347cdc4fb652a4d2bdae887
+guid: d2f6fb9df360ff643ab4b579277ac4f1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - wall: {fileID: 2925824461411909816, guid: 20de5ceae554df54a884dcc672e776aa, type: 3}
-  - floor: {fileID: 3270946206000298019, guid: 2dcf5db30bab58e408cb0db8c032f038, type: 3}
-  - player: {fileID: 5317032781900830826, guid: 518cad7b37f1f0544bc013b85c5af093, type: 3}
-  - goal: {fileID: 6236423650840315961, guid: c4b9824bcbf251d4f883b065c95dd104, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
