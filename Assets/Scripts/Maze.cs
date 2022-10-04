@@ -5,6 +5,7 @@ using UnityEngine;
 public class Maze : MonoBehaviour
 {
     public bool completed = false;
+    public MainMaster mainMaster;
     public CursorManager cursorManager;
 
     [Space(5)]
@@ -20,11 +21,11 @@ public class Maze : MonoBehaviour
     private int[,] maze0 =
     {
         {1,1,1,1,1,1,1,1,1,1,1 },
-        {1,0,1,0,0,0,0,0,0,0,1 },
+        {1,9,1,0,0,0,0,0,0,0,1 },
         {1,0,1,1,1,1,1,0,1,1,1 },
         {1,0,1,0,0,0,0,0,0,0,1 },
         {1,0,1,0,1,1,1,1,1,1,1 },
-        {1,0,0,0,1,0,1,0,0,0,1 },
+        {1,0,0,0,1,0,1,9,0,0,1 },
         {1,0,1,1,1,0,1,0,1,0,1 },
         {1,0,1,0,0,0,1,0,1,0,1 },
         {1,0,1,0,1,1,1,1,1,0,1 },
@@ -33,11 +34,11 @@ public class Maze : MonoBehaviour
 
         /*  
          *  ###########
-         *  # #       #
+         *  #@#       #
          *  # ##### ###
          *  # #       #
          *  # # #######
-         *  #   # #   #
+         *  #   # #@  #
          *  # ### # # #
          *  # #   # # #
          *  # # ##### #
@@ -51,7 +52,7 @@ public class Maze : MonoBehaviour
         {1,1,1,1,1,1,1,1,1,1,1 },
         {1,0,0,0,1,0,0,0,0,0,1 },
         {1,1,1,0,1,1,1,0,1,1,1 },
-        {1,0,0,0,0,0,0,0,1,0,1 },
+        {1,9,0,0,0,0,0,0,1,9,1 },
         {1,0,1,1,1,0,1,1,1,0,1 },
         {1,0,1,0,0,0,0,0,1,0,1 },
         {1,0,1,1,1,1,1,1,1,0,1 },
@@ -64,7 +65,7 @@ public class Maze : MonoBehaviour
          *  ###########
          *  #   #     #
          *  ### ### ###
-         *  #       # #
+         *  #@      #@#
          *  # ### ### #
          *  # #     # #
          *  # ####### #
@@ -84,7 +85,7 @@ public class Maze : MonoBehaviour
         {1,1,1,1,1,0,1,1,1,1,1 },
         {1,0,0,0,0,0,0,0,0,0,1 },
         {1,1,1,0,1,1,1,0,1,1,1 },
-        {1,0,0,0,1,0,1,0,0,0,1 },
+        {1,0,0,0,1,9,1,0,0,0,1 },
         {1,0,1,0,1,0,1,0,1,0,1 },
         {1,0,1,0,0,0,1,0,1,0,1 },
         {1,1,1,1,1,1,1,1,1,1,1 },
@@ -96,50 +97,76 @@ public class Maze : MonoBehaviour
          *  ##### #####
          *  #         #
          *  ### ### ###
-         *  #   # #   #
+         *  #   #@#   #
          *  # # # # # #
          *  # #   # # #
          *  ###########
          */
     };
 
+    [SerializeField] private bool mazeRundomization = true;
+
     [SerializeField] private int mazeNumber = 0;
+    [SerializeField] private int mazeRotationParameter = 0;
     [SerializeField] private int startEndGenFunction = 3;
 
     [Space(5)]
 
     [SerializeField] private int plx = 0;
     [SerializeField] private int ply = 0;
-    [Space(1)]
+    [Space(3)]
     [SerializeField] private int gox = 0;
     [SerializeField] private int goy = 0;
 
     [Space(5)]
 
-    [SerializeField] private GameObject invisibleWall;
+    [SerializeField] private GameObject hiddenWall;
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject passage;
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject goal;
-    [Space(1)]
+    [Space(3)]
+    [SerializeField] private GameObject mark;
+    [Space(3)]
     [SerializeField] private GameObject upper;
     [SerializeField] private GameObject right;
     [SerializeField] private GameObject left;
     [SerializeField] private GameObject lower;
-    [Space(1)]
+    [Space(3)]
     [SerializeField] private GameObject displaySquare;
     [SerializeField] private GameObject displayVWall;
     [SerializeField] private GameObject displayHWall;
+    [SerializeField] private GameObject Marks;
 
     private void Start()
     {
+        mainMaster = GameObject.Find("Game Master").GetComponent<MainMaster>();
+        cursorManager = GameObject.Find("Game Master").GetComponent<CursorManager>();
+
         maze.Add(maze0);
         maze.Add(maze1);
         maze.Add(maze2);
 
-        mazeNumber = Random.Range(0, 2);
-        currentMaze = RotateMaze(maze[mazeNumber], Random.Range(0, 4));
+        if (mazeRundomization)
+        {
+            mazeNumber = Random.Range(0, 2);
+            mazeRotationParameter = Random.Range(0, 4);
+        }
+
+        currentMaze = RotateMaze(maze[mazeNumber], mazeRotationParameter);
+
+        for (int i = 0; i < currentMaze.GetLength(1); i++)
+        {
+            for (int j = 0; j < currentMaze.GetLength(0); j++)
+            {
+                if (currentMaze[j, i] == 9)
+                {
+                    Instantiate(mark, new Vector3((3.25f * i - 1.5f), (-3.25f * j + 1.5f), 0), Quaternion.identity).transform.SetParent(Marks.transform, false);
+                    currentMaze[j, i] = 0;
+                }
+            }
+        }
 
         while (!(((Mathf.Abs(plx - gox) + Mathf.Abs(ply - goy)) / 2) >= startEndGenFunction))
         {
@@ -199,12 +226,12 @@ public class Maze : MonoBehaviour
                 {
                     if (i % 2 == 1 && j % 2 == 0)//xé≤Ç™äÔêîóÒÅAyé≤Ç™ãÙêîóÒÅ@
                     {
-                        GameObject wa = Instantiate(invisibleWall);
+                        GameObject wa = Instantiate(hiddenWall);
                         wa.transform.SetParent(displayVWall.transform, false);
                     }
                     else if (i % 2 == 0 && j % 2 == 1)//xé≤Ç™ãÙêîóÒÅAyé≤Ç™äÔêîóÒ
                     {
-                        GameObject wa = Instantiate(invisibleWall);
+                        GameObject wa = Instantiate(hiddenWall);
                         wa.transform.SetParent(displayHWall.transform, false);
                     }
                 }
