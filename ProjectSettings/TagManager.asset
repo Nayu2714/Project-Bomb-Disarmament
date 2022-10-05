@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Maze
+  - wire2
+  - wire3
+  - wire4
+  - wire5
+  - wire6
+  - wire1
+  - upper
+  - lower
   layers:
   - Default
   - TransparentFX
@@ -12,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Interact
+  - 
   - 
   - 
   - 
