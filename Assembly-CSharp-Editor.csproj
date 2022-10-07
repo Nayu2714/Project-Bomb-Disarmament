@@ -56,15 +56,15 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SAColliderBuilder\Editor\SAMeshColliderEditorCommon.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SABoneColliderEditorCommon.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SAColliderBoxReducer.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SAColliderHullReducer.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SAMeshColliderBuilderInspector.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SABoneColliderInspector.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SAMeshColliderInspector.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SABoneColliderBuilderInspector.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Editor\SAColliderBuilderEditorCommon.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SAMeshColliderEditorCommon.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SABoneColliderEditorCommon.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SAColliderBoxReducer.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SAColliderHullReducer.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SAMeshColliderBuilderInspector.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SABoneColliderInspector.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SAMeshColliderInspector.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SABoneColliderBuilderInspector.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Editor\SAColliderBuilderEditorCommon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

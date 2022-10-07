@@ -57,20 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TimeManager.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
     <Compile Include="Assets\Scripts\CursorManager.cs" />
     <Compile Include="Assets\Scripts\MainMaster.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SAMeshColliderCommon.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneColliderBuilder.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\Internal\SAMeshColliderCommon.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SABoneColliderBuilder.cs" />
     <Compile Include="Assets\Scripts\Maze.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SAColliderBuilderCommon.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneCollider.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\Internal\SAColliderBuilderCommon.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SABoneCollider.cs" />
     <Compile Include="Assets\Scripts\HandleModule.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneColliderChild.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SABoneColliderCommon.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SABoneColliderChild.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\Internal\SABoneColliderCommon.cs" />
     <Compile Include="Assets\Scripts\WireModule.cs" />
     <Compile Include="Assets\Scripts\TenjiModule.cs" />
-    <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshColliderBuilder.cs" />
+    <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SAMeshColliderBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -78,7 +78,7 @@
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\SAColliderBuilder\Readme_en.txt" />
+    <None Include="Assets\Downloads\SAColliderBuilder\Readme_en.txt" />
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Downloads\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -94,7 +94,7 @@
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Downloads\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\SAColliderBuilder\Readme_jp.txt" />
+    <None Include="Assets\Downloads\SAColliderBuilder\Readme_jp.txt" />
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>

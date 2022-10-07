@@ -58,7 +58,7 @@ public class WireModule : MonoBehaviour
 
         //モジュールの生成
         //moduleObject = GameObject.Instantiate<GameObject>(modulePre);
-        
+
         /*
         //親子関係の構築
             wireObject1.transform.parent = moduleObject.transform;
@@ -76,7 +76,9 @@ public class WireModule : MonoBehaviour
         */
 
         //ワイヤーの生成
+
         wireObject1 = GameObject.Instantiate<GameObject>(wirePre1);
+        wireObject1.transform.SetParent(this.gameObject.transform, false);
         cuttedwireObject1 = GameObject.Instantiate<GameObject>(cuttedwirePre1);
         wireObject2 = GameObject.Instantiate<GameObject>(wirePre2);
         cuttedwireObject2 = GameObject.Instantiate<GameObject>(cuttedwirePre2);
