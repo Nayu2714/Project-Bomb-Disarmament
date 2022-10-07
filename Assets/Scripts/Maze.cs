@@ -7,6 +7,7 @@ public class Maze : MonoBehaviour
     public bool completed = false;
     public MainMaster mainMaster;
     public CursorManager cursorManager;
+    public CompletedManager completedManager;
 
     [Space(5)]
 
@@ -141,8 +142,8 @@ public class Maze : MonoBehaviour
 
     private void Start()
     {
-        mainMaster = GameObject.Find("Game Master").GetComponent<MainMaster>();
-        cursorManager = GameObject.Find("Game Master").GetComponent<CursorManager>();
+        mainMaster = GameObject.Find("Main Master").GetComponent<MainMaster>();
+        cursorManager = GameObject.Find("Main Master").GetComponent<CursorManager>();
 
         maze.Add(maze0);
         maze.Add(maze1);
@@ -189,6 +190,10 @@ public class Maze : MonoBehaviour
         if (!completed)
         {
             MovePlayer(currentMaze);
+        }
+        else
+        {
+            completedManager.completedDisplaying(true);
         }
 
     }
@@ -270,20 +275,17 @@ public class Maze : MonoBehaviour
         {
             if (maze[ply - 1, plx] == 1)
             {
-                Debug.Log("ouch!");
                 maze[ply - 1, plx] = 11;
                 CreateMaze(maze);
                 return;
             }
             else if (maze[ply - 1, plx] == 11)
             {
-                Debug.Log("ouch!");
                 return;
             }
 
             if (maze[ply - 2, plx] == 3)
             {
-                Debug.Log("clear!");
                 completed = true;
             }
 
@@ -291,7 +293,6 @@ public class Maze : MonoBehaviour
             maze[ply, plx] = 0;
 
             ply -= 2;
-            Debug.Log(plx + " , " + ply);
 
             CreateMaze(maze);
         }
@@ -300,20 +301,17 @@ public class Maze : MonoBehaviour
         {
             if (maze[ply, plx + 1] == 1)
             {
-                Debug.Log("ouch!");
                 maze[ply, plx + 1] = 11;
                 CreateMaze(maze);
                 return;
             }
             else if (maze[ply, plx + 1] == 11)
             {
-                Debug.Log("ouch!");
                 return;
             }
 
             if (maze[ply, plx + 2] == 3)
             {
-                Debug.Log("clear!");
                 completed = true;
             }
 
@@ -321,7 +319,6 @@ public class Maze : MonoBehaviour
             maze[ply, plx] = 0;
 
             plx += 2;
-            Debug.Log(plx + " , " + ply);
 
             CreateMaze(maze);
         }
@@ -330,20 +327,17 @@ public class Maze : MonoBehaviour
         {
             if (maze[ply, plx - 1] == 1)
             {
-                Debug.Log("ouch!");
                 maze[ply, plx - 1] = 11;
                 CreateMaze(maze);
                 return;
             }
             else if (maze[ply, plx - 1] == 11)
             {
-                Debug.Log("ouch!");
                 return;
             }
 
             if (maze[ply, plx - 2] == 3)
             {
-                Debug.Log("clear!");
                 completed = true;
             }
 
@@ -351,7 +345,6 @@ public class Maze : MonoBehaviour
             maze[ply, plx] = 0;
 
             plx -= 2;
-            Debug.Log(plx + " , " + ply);
 
             CreateMaze(maze);
         }
@@ -360,20 +353,17 @@ public class Maze : MonoBehaviour
         {
             if (maze[ply + 1, plx] == 1)
             {
-                Debug.Log("ouch!");
                 maze[ply + 1, plx] = 11;
                 CreateMaze(maze);
                 return;
             }
             else if (maze[ply + 1, plx] == 11)
             {
-                Debug.Log("ouch!");
                 return;
             }
 
             if (maze[ply + 2, plx] == 3)
             {
-                Debug.Log("clear!");
                 completed = true;
             }
 
@@ -381,7 +371,6 @@ public class Maze : MonoBehaviour
             maze[ply, plx] = 0;
 
             ply += 2;
-            Debug.Log(plx + " , " + ply);
 
             CreateMaze(maze);
         }
@@ -434,7 +423,6 @@ public class Maze : MonoBehaviour
         }
         else
         {
-            Debug.Log("óLå¯Ç»ílÇ™ì¸óÕÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒÅB");
             return maze;
         }
     }

@@ -4,14 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - wire2
-  - wire3
-  - wire4
-  - wire5
-  - wire6
-  - wire1
   - upper
   - lower
+  - Cut
   - Maze
   layers:
   - Default
