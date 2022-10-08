@@ -64,7 +64,7 @@ public class TenjiModule : MonoBehaviour
                     n1=25;
                     }
                 }
-            else if(hit.collider.CompareTag("lower"))
+            else if(hit.collider.CompareTag("lower"))q
                 {
                     n1++;
                     if(n1 == 26){

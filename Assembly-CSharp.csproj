@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\CursorManager.cs" />
     <Compile Include="Assets\Scripts\MainMaster.cs" />
     <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\Internal\SAMeshColliderCommon.cs" />
+    <Compile Include="Assets\Scripts\CompletedManager.cs" />
     <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SABoneColliderBuilder.cs" />
     <Compile Include="Assets\Scripts\Maze.cs" />
     <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\Internal\SAColliderBuilderCommon.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="Assets\Scripts\WireModule.cs" />
     <Compile Include="Assets\Scripts\TenjiModule.cs" />
     <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SAMeshColliderBuilder.cs" />
-    <Compile Include="Assets\Scripts\CompletedManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -768,6 +768,9 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
@@ -818,9 +821,6 @@
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
