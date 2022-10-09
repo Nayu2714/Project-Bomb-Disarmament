@@ -11,26 +11,37 @@ public class TimeManager : MonoBehaviour
     public float currentTime;
     public bool timeCounting;
 
-    [SerializeField] private GameObject timerObject;
-    private TextMeshProUGUI tmp;
+    [SerializeField] private GameObject timerTextObject;
+    [SerializeField] private GameObject timerBlackScreenTextObject;
+    [SerializeField] private GameObject pointTextObject;
+    private TextMeshProUGUI timerTextTMP;
+    private TextMeshProUGUI timerBlackScreenTextTMP;
+    private TextMeshProUGUI pointTextTMP;
+
+    [SerializeField] private Color timerTextColor;
+    [SerializeField] private Color blackScreenColor;
 
     private void Start()
     {
-        tmp = timerObject.GetComponent<TextMeshProUGUI>();
+        timerTextTMP = timerTextObject.GetComponent<TextMeshProUGUI>();
+        timerBlackScreenTextTMP = timerBlackScreenTextObject.GetComponent<TextMeshProUGUI>();
+        pointTextTMP = pointTextObject.GetComponent<TextMeshProUGUI>();
 
         currentTime = timeLimit;
     }
 
-    public void Update()
+    private void Update()
     {
-
+        timerTextTMP.color = timerTextColor;
+        timerBlackScreenTextTMP.color = blackScreenColor;
+        pointTextTMP.color = blackScreenColor;
     }
 
     public void DisplayTime()
     {
         if (currentTime <= 0f)
         {
-            tmp.text = "0 : 00";
+            timerTextTMP.text = "00 00";
             return;
         }
 
@@ -40,28 +51,62 @@ public class TimeManager : MonoBehaviour
 
         if (currentTime < 60)
         {
-            if(cscs < 10)
+            pointTextTMP.color = timerTextColor;
+            if (ss < 10)
             {
-                tmp.text = ss.ToString() + " . 0" + cscs.ToString();
+                if (cscs < 10)
+                {
+                    timerTextTMP.text = "0" + ss.ToString() + " 0" + cscs.ToString();
+                }
+                else
+                {
+                    timerTextTMP.text = "0" + ss.ToString() + " " + cscs.ToString();
+                }
             }
             else
             {
-                tmp.text = ss.ToString() + " . " + cscs.ToString();
+                if (cscs < 10)
+                {
+                    timerTextTMP.text = ss.ToString() + " 0" + cscs.ToString();
+                }
+                else
+                {
+                    timerTextTMP.text = ss.ToString() + " " + cscs.ToString();
+                }
             }
-            
+
+
         }
         else
         {
-            if (ss < 10)
+            pointTextTMP.color = blackScreenColor;
+            if (mm < 10)
             {
-                string i = mm.ToString() + " : 0" + ss.ToString();
-                tmp.text = i;
+                if (ss < 10)
+                {
+                    string i = "0" + mm.ToString() + ":0" + ss.ToString();
+                    timerTextTMP.text = i;
+                }
+                else
+                {
+                    string i = "0" + mm.ToString() + ":" + ss.ToString();
+                    timerTextTMP.text = i;
+                }
             }
             else
             {
-                string i = mm.ToString() + " : " + ss.ToString();
-                tmp.text = i;
+                if (ss < 10)
+                {
+                    string i = mm.ToString() + ":0" + ss.ToString();
+                    timerTextTMP.text = i;
+                }
+                else
+                {
+                    string i = mm.ToString() + ":" + ss.ToString();
+                    timerTextTMP.text = i;
+                }
             }
+
         }
     }
 

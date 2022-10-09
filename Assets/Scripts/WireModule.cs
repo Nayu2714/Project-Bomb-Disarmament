@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class WireModule : MonoBehaviour
 {
     public bool completed = false;
-    public MainMaster mainMaster;
+    public StrikesManager strikesManager;
     public CursorManager cursorManager;
     public CompletedManager completedManager;
+
     [Space(5)]
 
     //[SerializeField] private GameObject modulePre;
@@ -59,8 +60,9 @@ public class WireModule : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainMaster = GameObject.Find("Main Master").GetComponent<MainMaster>();
-        cursorManager = GameObject.Find("Main Master").GetComponent<CursorManager>();
+        var master = GameObject.Find("Main Master");
+        strikesManager = master.GetComponent<StrikesManager>();
+        cursorManager = master.GetComponent<CursorManager>();
 
         //初期状態の設定
         Color newColor = new Color(0.933f, 0.509f, 0.933f, 1.0f);
@@ -626,6 +628,7 @@ public class WireModule : MonoBehaviour
         }
         else
         {
+            strikesManager.CountStrike();
             //Debug.Log(" Bomb !! ");
         }
     }

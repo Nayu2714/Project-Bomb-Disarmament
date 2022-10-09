@@ -30,7 +30,7 @@ public class TenjiModule : MonoBehaviour
     private Vector3 mouse;
 
     //テキスト表示用変数
-        int n1=0;
+    int n1 = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -47,33 +47,37 @@ public class TenjiModule : MonoBehaviour
         mouse = Input.mousePosition;
 
         string alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
+
         //ボタンを押す
-        if(Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0))
+        {
             //レイの生成
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 1000.0f)){
+            if (Physics.Raycast(ray, out hit, 1000.0f))
+            {
                 //Debug.DrawRay(ray.origin, ray.direction*1000, Color.red, 5, false);
 
-                if(hit.collider.CompareTag("upper"))
+                if (hit.collider.CompareTag("upper"))
                 {
                     n1--;
-                    if(n1 == -1){
-                    n1=25;
+                    if (n1 == -1)
+                    {
+                        n1 = 25;
                     }
                 }
-            else if(hit.collider.CompareTag("lower"))q
+                else if (hit.collider.CompareTag("lower"))
                 {
                     n1++;
-                    if(n1 == 26){
-                    n1 = 0;
+                    if (n1 == 26)
+                    {
+                        n1 = 0;
                     }
                 }
                 //Debug.Log("n1 = " + n1 );
             }
-            Debug.Log("alpha = " + alpha[n1] );
+            Debug.Log("alpha = " + alpha[n1]);
         }
         choicetext1.text = alpha[n1].ToString();
     }

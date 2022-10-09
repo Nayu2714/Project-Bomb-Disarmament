@@ -5,7 +5,7 @@ using UnityEngine;
 public class Maze : MonoBehaviour
 {
     public bool completed = false;
-    public MainMaster mainMaster;
+    public StrikesManager strikesManager;
     public CursorManager cursorManager;
     public CompletedManager completedManager;
 
@@ -142,8 +142,9 @@ public class Maze : MonoBehaviour
 
     private void Start()
     {
-        mainMaster = GameObject.Find("Main Master").GetComponent<MainMaster>();
-        cursorManager = GameObject.Find("Main Master").GetComponent<CursorManager>();
+        var master = GameObject.Find("Main Master");
+        strikesManager = master.GetComponent<StrikesManager>();
+        cursorManager = master.GetComponent<CursorManager>();
 
         maze.Add(maze0);
         maze.Add(maze1);
@@ -277,10 +278,12 @@ public class Maze : MonoBehaviour
             {
                 maze[ply - 1, plx] = 11;
                 CreateMaze(maze);
+                strikesManager.CountStrike();
                 return;
             }
             else if (maze[ply - 1, plx] == 11)
             {
+                strikesManager.CountStrike();
                 return;
             }
 
@@ -303,10 +306,12 @@ public class Maze : MonoBehaviour
             {
                 maze[ply, plx + 1] = 11;
                 CreateMaze(maze);
+                strikesManager.CountStrike();
                 return;
             }
             else if (maze[ply, plx + 1] == 11)
             {
+                strikesManager.CountStrike();
                 return;
             }
 
@@ -329,10 +334,12 @@ public class Maze : MonoBehaviour
             {
                 maze[ply, plx - 1] = 11;
                 CreateMaze(maze);
+                strikesManager.CountStrike();
                 return;
             }
             else if (maze[ply, plx - 1] == 11)
             {
+                strikesManager.CountStrike();
                 return;
             }
 
@@ -355,10 +362,12 @@ public class Maze : MonoBehaviour
             {
                 maze[ply + 1, plx] = 11;
                 CreateMaze(maze);
+                strikesManager.CountStrike();
                 return;
             }
             else if (maze[ply + 1, plx] == 11)
             {
+                strikesManager.CountStrike();
                 return;
             }
 

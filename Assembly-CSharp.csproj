@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\WireModule.cs" />
     <Compile Include="Assets\Scripts\TenjiModule.cs" />
     <Compile Include="Assets\Downloads\SAColliderBuilder\Scripts\SAMeshColliderBuilder.cs" />
+    <Compile Include="Assets\Scripts\StrikesManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Downloads\TextMesh Pro\Shaders\TMPro.cginc" />
