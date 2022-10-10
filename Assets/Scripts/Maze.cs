@@ -22,27 +22,27 @@ public class Maze : MonoBehaviour
     private int[,] maze0 =
     {
         {1,1,1,1,1,1,1,1,1,1,1 },
-        {1,9,1,0,0,0,0,0,0,0,1 },
-        {1,0,1,1,1,1,1,0,1,1,1 },
-        {1,0,1,0,0,0,0,0,0,0,1 },
-        {1,0,1,0,1,1,1,1,1,1,1 },
-        {1,0,0,0,1,0,1,9,0,0,1 },
-        {1,0,1,1,1,0,1,0,1,0,1 },
-        {1,0,1,0,0,0,1,0,1,0,1 },
-        {1,0,1,0,1,1,1,1,1,0,1 },
+        {1,0,1,0,0,0,0,0,0,9,1 },
+        {1,0,1,0,1,1,1,0,1,0,1 },
+        {1,0,1,0,1,0,1,0,1,0,1 },
+        {1,0,1,1,1,0,1,1,1,0,1 },
+        {1,0,0,0,0,0,1,0,0,0,1 },
+        {1,0,1,1,1,1,1,0,1,0,1 },
+        {1,0,1,0,0,0,1,9,1,0,1 },
+        {1,0,1,1,1,0,1,0,1,1,1 },
         {1,0,0,0,0,0,0,0,0,0,1 },
         {1,1,1,1,1,1,1,1,1,1,1 }
 
         /*  
          *  ###########
-         *  #        @#
-         *  # ##### ###
-         *  # #       #
-         *  # # #######
-         *  #   # #   #
-         *  # ### # # #
+         *  # #      @#
+         *  # # ### # #
+         *  # # # # # #
+         *  # ### ### #
+         *  #     #   #
+         *  # ##### # #
          *  # #   #@# #
-         *  # # ##### #
+         *  # ### # ###
          *  #         #
          *  ###########
          */
@@ -105,6 +105,21 @@ public class Maze : MonoBehaviour
          */
     };
 
+    private int[,] maze3 =
+    {
+        {1,1,1,1,1,1,1,1,1,1,1 },
+        {1,9,0,0,0,0,1,0,0,9,1 },
+        {1,0,1,0,1,1,1,1,1,0,1 },
+        {1,0,1,0,1,0,0,0,0,0,1 },
+        {1,1,1,0,1,0,1,1,1,0,1 },
+        {1,0,1,0,0,0,0,0,1,0,1 },
+        {1,0,1,1,1,0,1,0,1,1,1 },
+        {1,0,0,0,0,0,1,0,1,0,1 },
+        {1,0,1,1,1,1,1,0,1,0,1 },
+        {1,9,0,0,1,0,0,0,0,9,1 },
+        {1,1,1,1,1,1,1,1,1,1,1 },
+    };
+
     [SerializeField] private bool mazeRundomization = true;
 
     [SerializeField] private int mazeNumber = 0;
@@ -140,19 +155,26 @@ public class Maze : MonoBehaviour
     [SerializeField] private GameObject displayHWall;
     [SerializeField] private GameObject Marks;
 
+    [Space(5)]
+    [SerializeField] private AudioClip AC_click;
+    private AudioSource audioSource;
+
     private void Start()
     {
         var master = GameObject.Find("Main Master");
         strikesManager = master.GetComponent<StrikesManager>();
         cursorManager = master.GetComponent<CursorManager>();
 
+        audioSource = this.GetComponent<AudioSource>();
+
         maze.Add(maze0);
         maze.Add(maze1);
         maze.Add(maze2);
+        maze.Add(maze3);
 
         if (mazeRundomization)
         {
-            mazeNumber = Random.Range(0, 2);
+            mazeNumber = Random.Range(0, 4);
             mazeRotationParameter = Random.Range(0, 4);
         }
 
@@ -271,7 +293,125 @@ public class Maze : MonoBehaviour
     private void MovePlayer(int[,] maze)
     {
         GameObject co = cursorManager.GetCursorObject();
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (co == upper)
+            {
+                audioSource.PlayOneShot(AC_click);
+                if (maze[ply - 1, plx] == 1)
+                {
+                    maze[ply - 1, plx] = 11;
+                    CreateMaze(maze);
+                    strikesManager.CountStrike();
+                    return;
+                }
+                else if (maze[ply - 1, plx] == 11)
+                {
+                    strikesManager.CountStrike();
+                    return;
+                }
 
+                if (maze[ply - 2, plx] == 3)
+                {
+                    completed = true;
+                }
+
+                maze[ply - 2, plx] = 2;
+                maze[ply, plx] = 0;
+
+                ply -= 2;
+
+                CreateMaze(maze);
+            }
+
+            if (co == right)
+            {
+                audioSource.PlayOneShot(AC_click);
+                if (maze[ply, plx + 1] == 1)
+                {
+                    maze[ply, plx + 1] = 11;
+                    CreateMaze(maze);
+                    strikesManager.CountStrike();
+                    return;
+                }
+                else if (maze[ply, plx + 1] == 11)
+                {
+                    strikesManager.CountStrike();
+                    return;
+                }
+
+                if (maze[ply, plx + 2] == 3)
+                {
+                    completed = true;
+                }
+
+                maze[ply, plx + 2] = 2;
+                maze[ply, plx] = 0;
+
+                plx += 2;
+
+                CreateMaze(maze);
+            }
+
+            if (co == left)
+            {
+                audioSource.PlayOneShot(AC_click);
+                if (maze[ply, plx - 1] == 1)
+                {
+                    maze[ply, plx - 1] = 11;
+                    CreateMaze(maze);
+                    strikesManager.CountStrike();
+                    return;
+                }
+                else if (maze[ply, plx - 1] == 11)
+                {
+                    strikesManager.CountStrike();
+                    return;
+                }
+
+                if (maze[ply, plx - 2] == 3)
+                {
+                    completed = true;
+                }
+
+                maze[ply, plx - 2] = 2;
+                maze[ply, plx] = 0;
+
+                plx -= 2;
+
+                CreateMaze(maze);
+            }
+
+            if (co == lower)
+            {
+                audioSource.PlayOneShot(AC_click);
+                if (maze[ply + 1, plx] == 1)
+                {
+                    maze[ply + 1, plx] = 11;
+                    CreateMaze(maze);
+                    strikesManager.CountStrike();
+                    return;
+                }
+                else if (maze[ply + 1, plx] == 11)
+                {
+                    strikesManager.CountStrike();
+                    return;
+                }
+
+                if (maze[ply + 2, plx] == 3)
+                {
+                    completed = true;
+                }
+
+                maze[ply + 2, plx] = 2;
+                maze[ply, plx] = 0;
+
+                ply += 2;
+
+                CreateMaze(maze);
+            }
+        }
+        /*
         if ((co == upper) && (Input.GetMouseButtonDown(0)))
         {
             if (maze[ply - 1, plx] == 1)
@@ -382,7 +522,7 @@ public class Maze : MonoBehaviour
             ply += 2;
 
             CreateMaze(maze);
-        }
+        }*/
     }
 
     private int[,] RotateMaze(int[,] maze, int r)

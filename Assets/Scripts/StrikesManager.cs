@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class StrikesManager : MonoBehaviour
@@ -12,6 +13,15 @@ public class StrikesManager : MonoBehaviour
 
     [SerializeField] private Behaviour strikeMark1;
     [SerializeField] private Behaviour strikeMark2;
+
+    [Space(5)]
+    [SerializeField] private AudioClip AC_strike;
+    private AudioSource audioSource;
+
+    public void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void Update()
     {
@@ -45,6 +55,7 @@ public class StrikesManager : MonoBehaviour
 
     public void CountStrike()
     {
+        audioSource.PlayOneShot(AC_strike);
         if (strikes >= 3)
         {
             return;

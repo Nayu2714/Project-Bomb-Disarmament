@@ -57,12 +57,18 @@ public class WireModule : MonoBehaviour
     //プレイヤーが切ったワイヤー
     int playeranswer;
 
+    [Space(5)]
+    [SerializeField] private AudioClip AC_cut;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         var master = GameObject.Find("Main Master");
         strikesManager = master.GetComponent<StrikesManager>();
         cursorManager = master.GetComponent<CursorManager>();
+
+        audioSource = this.GetComponent<AudioSource>();
 
         //初期状態の設定
         Color newColor = new Color(0.933f, 0.509f, 0.933f, 1.0f);
@@ -143,55 +149,48 @@ public class WireModule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        mouse = Input.mousePosition;
-
-        //ワイヤーの切断
-        if (Input.GetMouseButtonDown(0))
+        if (!completed)
         {
-            //レイの生成
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 1000.0f))
+            if (Input.GetMouseButton(0))
             {
-                Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 5, false);
-                //Debug.Log("hit collider's name = " + hit.collider.name);
-
-                if (hit.collider.CompareTag("wire1"))
+                if (cursorManager.GetCursorObject() == wireObject1)
                 {
                     if (wireObject1.activeSelf)
                     {
+                        audioSource.PlayOneShot(AC_cut);
                         wireObject1.SetActive(false);
                         cuttedwireObject1.SetActive(true);
                         playeranswer = 1;
                         Answercheck();
                     }
                 }
-                else if (hit.collider.CompareTag("wire2"))
+                else if (cursorManager.GetCursorObject() == wireObject2)
                 {
                     if (wireObject2.activeSelf)
                     {
+                        audioSource.PlayOneShot(AC_cut);
                         wireObject2.SetActive(false);
                         cuttedwireObject2.SetActive(true);
                         playeranswer = 2;
                         Answercheck();
                     }
                 }
-                else if (hit.collider.CompareTag("wire3"))
+                else if (cursorManager.GetCursorObject() == wireObject3)
                 {
                     if (wireObject3.activeSelf)
                     {
+                        audioSource.PlayOneShot(AC_cut);
                         wireObject3.SetActive(false);
                         cuttedwireObject3.SetActive(true);
                         playeranswer = 3;
                         Answercheck();
                     }
                 }
-                else if (hit.collider.CompareTag("wire4"))
+                else if (cursorManager.GetCursorObject() == wireObject4)
                 {
                     if (wireObject4.activeSelf)
                     {
+                        audioSource.PlayOneShot(AC_cut);
                         wireObject4.SetActive(false);
                         cuttedwireObject4.SetActive(true);
                         playeranswer = 4;
@@ -199,90 +198,27 @@ public class WireModule : MonoBehaviour
                     }
 
                 }
-                else if (hit.collider.CompareTag("wire5"))
+                else if (cursorManager.GetCursorObject() == wireObject5)
                 {
                     if (wireObject5.activeSelf)
                     {
+                        audioSource.PlayOneShot(AC_cut);
                         wireObject5.SetActive(false);
                         cuttedwireObject5.SetActive(true);
                         playeranswer = 5;
                         Answercheck();
                     }
                 }
-                else if (hit.collider.CompareTag("wire6"))
+                else if (cursorManager.GetCursorObject() == wireObject6)
                 {
                     if (wireObject6.activeSelf)
                     {
+                        audioSource.PlayOneShot(AC_cut);
                         wireObject6.SetActive(false);
                         cuttedwireObject6.SetActive(true);
                         playeranswer = 6;
                         Answercheck();
                     }
-                }
-            }
-        }
-        */
-        if (Input.GetMouseButton(0))
-        {
-            if (cursorManager.GetCursorObject() == wireObject1)
-            {
-                if (wireObject1.activeSelf)
-                {
-                    wireObject1.SetActive(false);
-                    cuttedwireObject1.SetActive(true);
-                    playeranswer = 1;
-                    Answercheck();
-                }
-            }
-            else if (cursorManager.GetCursorObject() == wireObject2)
-            {
-                if (wireObject2.activeSelf)
-                {
-                    wireObject2.SetActive(false);
-                    cuttedwireObject2.SetActive(true);
-                    playeranswer = 2;
-                    Answercheck();
-                }
-            }
-            else if (cursorManager.GetCursorObject() == wireObject3)
-            {
-                if (wireObject3.activeSelf)
-                {
-                    wireObject3.SetActive(false);
-                    cuttedwireObject3.SetActive(true);
-                    playeranswer = 3;
-                    Answercheck();
-                }
-            }
-            else if (cursorManager.GetCursorObject() == wireObject4)
-            {
-                if (wireObject4.activeSelf)
-                {
-                    wireObject4.SetActive(false);
-                    cuttedwireObject4.SetActive(true);
-                    playeranswer = 4;
-                    Answercheck();
-                }
-
-            }
-            else if (cursorManager.GetCursorObject() == wireObject5)
-            {
-                if (wireObject5.activeSelf)
-                {
-                    wireObject5.SetActive(false);
-                    cuttedwireObject5.SetActive(true);
-                    playeranswer = 5;
-                    Answercheck();
-                }
-            }
-            else if (cursorManager.GetCursorObject() == wireObject6)
-            {
-                if (wireObject6.activeSelf)
-                {
-                    wireObject6.SetActive(false);
-                    cuttedwireObject6.SetActive(true);
-                    playeranswer = 6;
-                    Answercheck();
                 }
             }
         }
@@ -620,11 +556,7 @@ public class WireModule : MonoBehaviour
         {
             //Debug.Log(" Clear !! ");
             completed = true;
-            if (completed == true)
-            {
-                completedManager.completedDisplaying(true);
-                //clearObject.SetActive(true);
-            }
+            completedManager.completedDisplaying(true);
         }
         else
         {

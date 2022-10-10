@@ -8,23 +8,32 @@ public class MainMaster : MonoBehaviour
     private StrikesManager strikesManager;
     private TimeManager timeManager;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip AC_exp;
+
     public void Start()
     {
         strikesManager = this.GetComponent<StrikesManager>();
         timeManager = this.GetComponent<TimeManager>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     public void Update()
     {
         timeManager.DisplayTime();
-        timeManager.TimeCounter(timeManager.timeCounting);
         if (!bombed)
         {
-            if (strikesManager.GetStrikes() == 3)
+            timeManager.TimeCounter(true);
+            if (timeManager.GetCurrentTime() < 0 || strikesManager.GetStrikes() == 3)
             {
+                audioSource.PlayOneShot(AC_exp);
                 Debug.Log("Bomb!!");
                 bombed = true;
             }
+        }
+        else
+        {
+            timeManager.TimeCounter(false);
         }
     }
 

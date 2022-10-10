@@ -41,6 +41,7 @@ public class TimeManager : MonoBehaviour
     {
         if (currentTime <= 0f)
         {
+            pointTextTMP.color = timerTextColor;
             timerTextTMP.text = "00 00";
             return;
         }
