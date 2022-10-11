@@ -8,6 +8,11 @@ public class MainMaster : MonoBehaviour
     private StrikesManager strikesManager;
     private TimeManager timeManager;
 
+    public GameObject timer;
+
+    public int completedCount = 0;
+    public int modules = 5;
+
     private AudioSource audioSource;
     [SerializeField] private AudioClip AC_exp;
 
@@ -16,11 +21,14 @@ public class MainMaster : MonoBehaviour
         strikesManager = this.GetComponent<StrikesManager>();
         timeManager = this.GetComponent<TimeManager>();
         audioSource = this.GetComponent<AudioSource>();
+
+        completedCount = 0;
     }
 
     public void Update()
     {
         timeManager.DisplayTime();
+
         if (!bombed)
         {
             timeManager.TimeCounter(true);
@@ -29,7 +37,16 @@ public class MainMaster : MonoBehaviour
                 audioSource.PlayOneShot(AC_exp);
                 Debug.Log("Bomb!!");
                 bombed = true;
+                return;
             }
+
+            if(completedCount == modules)
+            {
+                Debug.Log("AllClear!!");
+            }
+
+
+
         }
         else
         {
@@ -37,4 +54,8 @@ public class MainMaster : MonoBehaviour
         }
     }
 
+    public void AddCompletedCount()
+    {
+        completedCount++;
+    }
 }

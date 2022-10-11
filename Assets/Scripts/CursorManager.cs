@@ -15,9 +15,9 @@ public class CursorManager : MonoBehaviour
 
     public void Start()
     {
-        cursorDefault = ResizeTexture(cursorDefault, 32, 32);
-        cursorInteract = ResizeTexture(cursorInteract, 32, 32);
-        cursorCut = ResizeTexture(cursorCut, 32, 32);
+        cursorDefault = ResizeTexture(cursorDefault, 48, 48);
+        cursorInteract = ResizeTexture(cursorInteract, 48, 48);
+        cursorCut = ResizeTexture(cursorCut, 48, 48);
     }
 
     public void Update()
