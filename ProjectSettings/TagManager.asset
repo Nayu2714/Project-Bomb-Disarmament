@@ -12,6 +12,8 @@ TagManager:
   - wire1
   - upper
   - lower
+  - answer
+  - Tenji
   layers:
   - Default
   - TransparentFX

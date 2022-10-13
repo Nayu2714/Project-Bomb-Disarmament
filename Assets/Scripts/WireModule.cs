@@ -56,25 +56,6 @@ public class WireModule : MonoBehaviour
         //初期状態の設定
         Color newColor = new Color(0.933f, 0.509f, 0.933f, 1.0f);
 
-        //モジュールの生成
-        //moduleObject = GameObject.Instantiate<GameObject>(modulePre);
-        
-        /*
-        //親子関係の構築
-            wireObject1.transform.parent = moduleObject.transform;
-            wireObject2.transform.parent = moduleObject.transform;
-            wireObject3.transform.parent = moduleObject.transform;
-            wireObject4.transform.parent = moduleObject.transform;
-            wireObject5.transform.parent = moduleObject.transform;
-            wireObject6.transform.parent = moduleObject.transform;
-            cuttedwireObject1.transform.parent = moduleObject.transform;
-            cuttedwireObject2.transform.parent = moduleObject.transform;
-            cuttedwireObject3.transform.parent = moduleObject.transform;
-            cuttedwireObject4.transform.parent = moduleObject.transform;
-            cuttedwireObject5.transform.parent = moduleObject.transform;
-            cuttedwireObject6.transform.parent = moduleObject.transform;
-        */
-
         //ワイヤーの生成
         wireObject1 = GameObject.Instantiate<GameObject>(wirePre1);
         cuttedwireObject1 = GameObject.Instantiate<GameObject>(cuttedwirePre1);
@@ -253,7 +234,7 @@ public class WireModule : MonoBehaviour
                 cuttedwireObject5.GetComponent<Renderer>().material.color = Color.red;
                 wireObject6.GetComponent<Renderer>().material.color = Color.red;
                 cuttedwireObject6.GetComponent<Renderer>().material.color = Color.red;
-                answernum = 3;
+                answernum = 2;
             }else if(num == 6){
                 wireObject1.GetComponent<Renderer>().material.color = Color.blue;
                 cuttedwireObject1.GetComponent<Renderer>().material.color = Color.blue;
