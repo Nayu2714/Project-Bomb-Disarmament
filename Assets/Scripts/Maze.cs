@@ -214,11 +214,6 @@ public class Maze : MonoBehaviour
         {
             MovePlayer(currentMaze);
         }
-        else
-        {
-            completedManager.completedDisplaying(true);
-        }
-
     }
 
     private void CreateMaze(int[,] maze)
@@ -314,6 +309,7 @@ public class Maze : MonoBehaviour
                 if (maze[ply - 2, plx] == 3)
                 {
                     completed = true;
+                    completedManager.completedDisplaying(true);
                 }
 
                 maze[ply - 2, plx] = 2;
@@ -343,6 +339,7 @@ public class Maze : MonoBehaviour
                 if (maze[ply, plx + 2] == 3)
                 {
                     completed = true;
+                    completedManager.completedDisplaying(true);
                 }
 
                 maze[ply, plx + 2] = 2;
@@ -372,6 +369,7 @@ public class Maze : MonoBehaviour
                 if (maze[ply, plx - 2] == 3)
                 {
                     completed = true;
+                    completedManager.completedDisplaying(true);
                 }
 
                 maze[ply, plx - 2] = 2;
@@ -401,6 +399,7 @@ public class Maze : MonoBehaviour
                 if (maze[ply + 2, plx] == 3)
                 {
                     completed = true;
+                    completedManager.completedDisplaying(true);
                 }
 
                 maze[ply + 2, plx] = 2;
@@ -411,118 +410,6 @@ public class Maze : MonoBehaviour
                 CreateMaze(maze);
             }
         }
-        /*
-        if ((co == upper) && (Input.GetMouseButtonDown(0)))
-        {
-            if (maze[ply - 1, plx] == 1)
-            {
-                maze[ply - 1, plx] = 11;
-                CreateMaze(maze);
-                strikesManager.CountStrike();
-                return;
-            }
-            else if (maze[ply - 1, plx] == 11)
-            {
-                strikesManager.CountStrike();
-                return;
-            }
-
-            if (maze[ply - 2, plx] == 3)
-            {
-                completed = true;
-            }
-
-            maze[ply - 2, plx] = 2;
-            maze[ply, plx] = 0;
-
-            ply -= 2;
-
-            CreateMaze(maze);
-        }
-
-        if ((co == right) && (Input.GetMouseButtonDown(0)))
-        {
-            if (maze[ply, plx + 1] == 1)
-            {
-                maze[ply, plx + 1] = 11;
-                CreateMaze(maze);
-                strikesManager.CountStrike();
-                return;
-            }
-            else if (maze[ply, plx + 1] == 11)
-            {
-                strikesManager.CountStrike();
-                return;
-            }
-
-            if (maze[ply, plx + 2] == 3)
-            {
-                completed = true;
-            }
-
-            maze[ply, plx + 2] = 2;
-            maze[ply, plx] = 0;
-
-            plx += 2;
-
-            CreateMaze(maze);
-        }
-
-        if ((co == left) && (Input.GetMouseButtonDown(0)))
-        {
-            if (maze[ply, plx - 1] == 1)
-            {
-                maze[ply, plx - 1] = 11;
-                CreateMaze(maze);
-                strikesManager.CountStrike();
-                return;
-            }
-            else if (maze[ply, plx - 1] == 11)
-            {
-                strikesManager.CountStrike();
-                return;
-            }
-
-            if (maze[ply, plx - 2] == 3)
-            {
-                completed = true;
-            }
-
-            maze[ply, plx - 2] = 2;
-            maze[ply, plx] = 0;
-
-            plx -= 2;
-
-            CreateMaze(maze);
-        }
-
-        if ((co == lower) && (Input.GetMouseButtonDown(0)))
-        {
-            if (maze[ply + 1, plx] == 1)
-            {
-                maze[ply + 1, plx] = 11;
-                CreateMaze(maze);
-                strikesManager.CountStrike();
-                return;
-            }
-            else if (maze[ply + 1, plx] == 11)
-            {
-                strikesManager.CountStrike();
-                return;
-            }
-
-            if (maze[ply + 2, plx] == 3)
-            {
-                completed = true;
-            }
-
-            maze[ply + 2, plx] = 2;
-            maze[ply, plx] = 0;
-
-            ply += 2;
-
-            CreateMaze(maze);
-        }*/
     }
 
     private int[,] RotateMaze(int[,] maze, int r)

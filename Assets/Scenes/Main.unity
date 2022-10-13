@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.04111749, g: 0.072494544, b: 0.1256555, a: 1}
+  m_IndirectSpecularColor: {r: 0.03972685, g: 0.0726142, b: 0.1247256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1734,7 +1734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 408791794}
   m_Layer: 0
-  m_Name: Timer
+  m_Name: Time Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2813,6 +2813,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818285660}
+  - component: {fileID: 818285662}
+  - component: {fileID: 818285661}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -2838,6 +2840,43 @@ Transform:
   m_Father: {fileID: 2001195290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818285661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818285659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5247b98ec3326de43a1dee525d58bfb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strikes: 0
+  cycle: 0.5
+  strikeMark1: {fileID: 0}
+  strikeMark2: {fileID: 0}
+  AC_strike: {fileID: 0}
+--- !u!114 &818285662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818285659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb000dde49570b46aafced2a8614ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimit: 0
+  currentTime: 0
+  timeCounting: 0
+  timerTextObject: {fileID: 0}
+  timerBlackScreenTextObject: {fileID: 0}
+  pointTextObject: {fileID: 0}
+  timerTextColor: {r: 0, g: 0, b: 0, a: 0}
+  blackScreenColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!43 &821333034
 Mesh:
   m_ObjectHideFlags: 0
@@ -3606,6 +3645,9 @@ MonoBehaviour:
   completedCount: 0
   modules: 5
   AC_exp: {fileID: 8300000, guid: d2c280f3a57165442beaddf35812c1ab, type: 3}
+  modulesList:
+  - {fileID: 413397321780647093, guid: 3e0abe587c6434b42971ece5f6acb93e, type: 3}
+  - {fileID: 2443438520774801706, guid: 58bb9b8fc7d91304f9d905ee355957ba, type: 3}
 --- !u!4 &1038250336
 Transform:
   m_ObjectHideFlags: 0

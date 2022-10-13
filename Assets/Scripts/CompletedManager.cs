@@ -17,6 +17,7 @@ public class CompletedManager : MonoBehaviour
         if (c)
         {
             completedSign.SetActive(true);
+            GameObject.Find("Main Master").GetComponent<MainMaster>().AddCompletedCount();
         }
         else
         {

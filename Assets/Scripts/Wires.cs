@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Wire : MonoBehaviour
+public class Wires : MonoBehaviour
 {
     public bool completed = false;
     public StrikesManager strikesManager;
@@ -556,6 +556,7 @@ public class Wire : MonoBehaviour
         {
             //Debug.Log(" Clear !! ");
             completed = true;
+
             completedManager.completedDisplaying(true);
         }
         else
