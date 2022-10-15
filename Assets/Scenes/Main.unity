@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.04111985, g: 0.07249684, b: 0.12565836, a: 1}
+  m_IndirectSpecularColor: {r: 0.04111749, g: 0.072494544, b: 0.1256555, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 192756725}
   - component: {fileID: 192756724}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: TipsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2053,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipsObj: {fileID: 192756722}
   speed: 0.5
+  tipsDisplayTime: 5
 --- !u!4 &564303793
 Transform:
   m_ObjectHideFlags: 0
@@ -3317,7 +3318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038250332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e23c5560986892448c9f042823b29e3, type: 3}
   m_Name: 

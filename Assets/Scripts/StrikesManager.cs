@@ -42,7 +42,7 @@ public class StrikesManager : MonoBehaviour
             strikeMark1.enabled = repeatValue >= cycle * 0.5f;
             strikeMark2.enabled = repeatValue >= cycle * 0.5f;
         }
-        else
+        else if (strikes == 3)
         {
             strikeMark1.enabled = true;
             strikeMark2.enabled = true;
