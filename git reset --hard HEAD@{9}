@@ -1,0 +1,63 @@
+[33m463f4372[m[33m ([m[1;36mHEAD -> [m[1;32m03_那裕[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/03_那裕[m[33m, [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to 463f4372ce2a247903dce80a20ad972466d50053
+[33m47f98f2d[m HEAD@{1}: reset: moving to 47f98f2d93b07c1533f33f982fbb8d5fb366e8d9
+[33mdcb3c4ad[m HEAD@{2}: reset: moving to dcb3c4ad4bc71d60fae0402208bf589e17fec1bf
+[33md1084764[m HEAD@{3}: reset: moving to d1084764b6b89427485734eb814cda04300a33dd
+[33m54a24268[m HEAD@{4}: reset: moving to 54a2426892e2dcc096414487f6417391fa90d857
+[33mdaccffd2[m HEAD@{5}: revert: Revert "全体制御　更新7回目"
+[33m54a24268[m HEAD@{6}: revert: Revert "Update default-2021.dwlt"
+[33md1084764[m HEAD@{7}: commit: Update default-2021.dwlt
+[33mdcb3c4ad[m HEAD@{8}: commit: 全体制御　更新7回目・追更新
+[33m47f98f2d[m HEAD@{9}: commit: 全体制御　更新7回目
+[33m463f4372[m[33m ([m[1;36mHEAD -> [m[1;32m03_那裕[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/03_那裕[m[33m, [m[1;32mmain[m[33m)[m HEAD@{10}: checkout: moving from 02_梅川 to 03_那裕
+[33m38f6093c[m[33m ([m[1;31morigin/02_梅川[m[33m, [m[1;32m02_梅川[m[33m)[m HEAD@{11}: reset: moving to HEAD
+[33m38f6093c[m[33m ([m[1;31morigin/02_梅川[m[33m, [m[1;32m02_梅川[m[33m)[m HEAD@{12}: checkout: moving from main to 02_梅川
+[33m463f4372[m[33m ([m[1;36mHEAD -> [m[1;32m03_那裕[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/03_那裕[m[33m, [m[1;32mmain[m[33m)[m HEAD@{13}: merge 03_那裕: Fast-forward
+[33m7e3365a4[m HEAD@{14}: checkout: moving from 03_那裕 to main
+[33m463f4372[m[33m ([m[1;36mHEAD -> [m[1;32m03_那裕[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/03_那裕[m[33m, [m[1;32mmain[m[33m)[m HEAD@{15}: commit (amend): 全体制御　更新6回目
+[33ma5e32e38[m HEAD@{16}: commit: 更新　6回目
+[33mb39cfde2[m HEAD@{17}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33mcb38eeaf[m HEAD@{18}: commit: 全体制御　更新4回目
+[33m7e3365a4[m HEAD@{19}: checkout: moving from main to 03_那裕
+[33m7e3365a4[m HEAD@{20}: merge 03_那裕: Fast-forward
+[33mf3b0fa35[m HEAD@{21}: checkout: moving from 03_那裕 to main
+[33m7e3365a4[m HEAD@{22}: commit: 全体制御　更新3回目
+[33mf3b0fa35[m HEAD@{23}: merge main: Fast-forward
+[33m89683eec[m HEAD@{24}: checkout: moving from main to 03_那裕
+[33mf3b0fa35[m HEAD@{25}: commit: 全体制御　更新2回目・追更新
+[33m89683eec[m HEAD@{26}: merge 03_那裕: Fast-forward
+[33m0bc92714[m HEAD@{27}: checkout: moving from 03_那裕 to main
+[33m89683eec[m HEAD@{28}: checkout: moving from main to 03_那裕
+[33m0bc92714[m HEAD@{29}: reset: moving to HEAD
+[33m0bc92714[m HEAD@{30}: checkout: moving from 03_那裕 to main
+[33m89683eec[m HEAD@{31}: commit: 全体制御　更新2回目
+[33m352ba431[m HEAD@{32}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33m49ce5354[m HEAD@{33}: checkout: moving from 02_梅川 to 03_那裕
+[33mdca2e333[m HEAD@{34}: checkout: moving from main to 02_梅川
+[33m49ce5354[m HEAD@{35}: reset: moving to HEAD
+[33m49ce5354[m HEAD@{36}: checkout: moving from 02_梅川 to main
+[33mdca2e333[m HEAD@{37}: checkout: moving from 03_那裕 to 02_梅川
+[33m49ce5354[m HEAD@{38}: checkout: moving from main to 03_那裕
+[33m49ce5354[m HEAD@{39}: checkout: moving from 03_那裕 to main
+[33m49ce5354[m HEAD@{40}: checkout: moving from main to 03_那裕
+[33m49ce5354[m HEAD@{41}: reset: moving to HEAD
+[33m49ce5354[m HEAD@{42}: reset: moving to HEAD
+[33m49ce5354[m HEAD@{43}: checkout: moving from 02_梅川 to main
+[33mdca2e333[m HEAD@{44}: checkout: moving from main to 02_梅川
+[33m49ce5354[m HEAD@{45}: checkout: moving from 02_梅川 to main
+[33mdca2e333[m HEAD@{46}: checkout: moving from main to 02_梅川
+[33m49ce5354[m HEAD@{47}: checkout: moving from 02_梅川 to main
+[33mdca2e333[m HEAD@{48}: checkout: moving from main to 02_梅川
+[33m49ce5354[m HEAD@{49}: merge 03_那裕: Fast-forward
+[33m12eb9225[m[33m ([m[1;31morigin/01_仙人[m[33m, [m[1;32m01_仙人[m[33m)[m HEAD@{50}: checkout: moving from 03_那裕 to main
+[33m49ce5354[m HEAD@{51}: checkout: moving from main to 03_那裕
+[33m12eb9225[m[33m ([m[1;31morigin/01_仙人[m[33m, [m[1;32m01_仙人[m[33m)[m HEAD@{52}: reset: moving to HEAD
+[33m12eb9225[m[33m ([m[1;31morigin/01_仙人[m[33m, [m[1;32m01_仙人[m[33m)[m HEAD@{53}: checkout: moving from 03_那裕 to main
+[33m49ce5354[m HEAD@{54}: commit: 迷路モジュール 完成
+[33med86cb56[m HEAD@{55}: commit: Gitignore作成 試しのコミット
+[33m2367bdc8[m HEAD@{56}: pull --ff --progress origin: Fast-forward
+[33m9664e483[m HEAD@{57}: reset: moving to HEAD
+[33m9664e483[m HEAD@{58}: checkout: moving from 02_梅川 to 03_那裕
+[33mdca2e333[m HEAD@{59}: checkout: moving from 01_仙人 to 02_梅川
+[33m12eb9225[m[33m ([m[1;31morigin/01_仙人[m[33m, [m[1;32m01_仙人[m[33m)[m HEAD@{60}: checkout: moving from 03_那裕 to 01_仙人
+[33m9664e483[m HEAD@{61}: checkout: moving from main to 03_那裕
+[33m12eb9225[m[33m ([m[1;31morigin/01_仙人[m[33m, [m[1;32m01_仙人[m[33m)[m HEAD@{62}: clone: from https://github.com/Nayu2714/Project-Bomb-Disarmament.git

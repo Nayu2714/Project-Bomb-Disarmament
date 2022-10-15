@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class MainMaster : MonoBehaviour
 {
-    public bool bombed = false;
+    private bool begin = false;
+    private bool bombed = false;
+    
     private StrikesManager strikesManager;
     private TimeManager timeManager;
 
     public int completedCount = 0;
-    public int modules = 5;
+    public int modules = 6;
 
     private AudioSource audioSource;
     [SerializeField] private AudioClip AC_exp;
@@ -23,6 +25,8 @@ public class MainMaster : MonoBehaviour
 
     public void Start()
     {
+        GameObject.Find("Main Camera").GetComponent<Camera>().orthographic = false;
+
         strikesManager = this.GetComponent<StrikesManager>();
         timeManager = this.GetComponent<TimeManager>();
         audioSource = this.GetComponent<AudioSource>();
@@ -31,48 +35,79 @@ public class MainMaster : MonoBehaviour
 
         completedCount = 0;
 
-        for (int i = 0; i < modules + 1; i++)
+        /*********************************************///モジュール生成及び初期化プロセス
+
+        GameObject[] go = new GameObject[6];
+        go[Random.Range(0, modules)] = timer;
+
+        for (int i = 0; i < modules; i++)
         {
             Transform t = modulesObject.transform.Find(i.ToString()).transform;
-            Instantiate(moduleList[Random.Range(0, moduleList.Count)]).transform.SetParent(t, false);
+
+            if (go[i] != null)
+            {
+                if (go[i] == timer) timer.transform.SetParent(t, false);
+                continue;
+            }
+
+            int rnd = Random.Range(0, moduleList.Count);
+            go[i] = moduleList[rnd];
+
+            Instantiate(moduleList[rnd]).transform.SetParent(t, false);
         }
-        int rnd1 = Random.Range(0, modules + 1);
+
+        /*********************************************/
+
+        StartCoroutine(DelayMethod(5.0f, () =>
+        {
+            begin = true;
+        }));
+
+
     }
 
     public void Update()
     {
         timeManager.DisplayTime();
-
-        if (!bombed)
+        if (begin)
         {
-            timeManager.TimeCounter(true);
-
-            if (timeManager.GetCurrentTime() < 0 || strikesManager.GetStrikes() == 3)
+            if (!bombed)
             {
-                audioSource.PlayOneShot(AC_exp);
-                Debug.Log("Bomb!!");
-                bombed = true;
-                return;
-            }
+                timeManager.TimeCounter(true);
 
-            if (completedCount >= modules)
+                if (timeManager.GetCurrentTime() < 0 || strikesManager.GetStrikes() == 3)
+                {
+                    audioSource.PlayOneShot(AC_exp);
+                    Debug.Log("Bomb!!");
+                    bombed = true;
+                    return;
+                }
+
+                if (completedCount >= modules)
+                {
+                    Debug.Log("AllClear!!");
+                    bombed = true;
+                    return;
+                }
+
+
+
+            }
+            else
             {
-                Debug.Log("AllClear!!");
-                bombed = true;
-                return;
+                timeManager.TimeCounter(false);
             }
-
-
-
-        }
-        else
-        {
-            timeManager.TimeCounter(false);
         }
     }
 
     public void AddCompletedCount()
     {
         completedCount++;
+    }
+
+    private IEnumerator DelayMethod(float waitTime, System.Action action)
+    {
+        yield return new WaitForSeconds(waitTime);
+        action();
     }
 }
