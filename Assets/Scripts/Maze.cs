@@ -5,6 +5,7 @@ using UnityEngine;
 public class Maze : MonoBehaviour
 {
     public bool completed = false;
+    public MainMaster mainMaster;
     public StrikesManager strikesManager;
     public CursorManager cursorManager;
     public CompletedManager completedManager;
@@ -162,6 +163,7 @@ public class Maze : MonoBehaviour
     private void Start()
     {
         var master = GameObject.Find("Main Master");
+        mainMaster = master.GetComponent<MainMaster>();
         strikesManager = master.GetComponent<StrikesManager>();
         cursorManager = master.GetComponent<CursorManager>();
 
@@ -310,6 +312,7 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
+                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply - 2, plx] = 2;
@@ -340,6 +343,7 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
+                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply, plx + 2] = 2;
@@ -370,6 +374,7 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
+                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply, plx - 2] = 2;
@@ -400,6 +405,7 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
+                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply + 2, plx] = 2;

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Wires : MonoBehaviour
 {
     public bool completed = false;
+    public MainMaster mainMaster;
     public StrikesManager strikesManager;
     public CursorManager cursorManager;
     public CompletedManager completedManager;
@@ -65,6 +66,7 @@ public class Wires : MonoBehaviour
     void Start()
     {
         var master = GameObject.Find("Main Master");
+        mainMaster = master.GetComponent<MainMaster>();
         strikesManager = master.GetComponent<StrikesManager>();
         cursorManager = master.GetComponent<CursorManager>();
 
@@ -558,6 +560,7 @@ public class Wires : MonoBehaviour
             completed = true;
 
             completedManager.completedDisplaying(true);
+            mainMaster.AddCompletedCount();
         }
         else
         {

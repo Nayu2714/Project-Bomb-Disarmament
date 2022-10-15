@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class MainMaster : MonoBehaviour
 {
     private bool begin = false;
     private bool bombed = false;
-    
+
     private StrikesManager strikesManager;
     private TimeManager timeManager;
 
@@ -22,6 +23,8 @@ public class MainMaster : MonoBehaviour
     private GameObject timer;
 
     [SerializeField] private GameObject modulesObject;
+
+    private GameObject bsObj;
 
     public void Start()
     {
@@ -58,12 +61,14 @@ public class MainMaster : MonoBehaviour
 
         /*********************************************/
 
-        StartCoroutine(DelayMethod(5.0f, () =>
+        StartCoroutine(DelayMethod(10.0f, () =>
         {
             begin = true;
         }));
 
+        completedCount = 1;
 
+        bsObj = GameObject.Find("Black Screen");
     }
 
     public void Update()
@@ -78,7 +83,9 @@ public class MainMaster : MonoBehaviour
                 if (timeManager.GetCurrentTime() < 0 || strikesManager.GetStrikes() == 3)
                 {
                     audioSource.PlayOneShot(AC_exp);
+
                     Debug.Log("Bomb!!");
+                    bsObj.GetComponent<Image>().color = new Color(0f, 0f, 0f, 1f);
                     bombed = true;
                     return;
                 }
@@ -89,9 +96,6 @@ public class MainMaster : MonoBehaviour
                     bombed = true;
                     return;
                 }
-
-
-
             }
             else
             {
