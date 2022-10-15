@@ -312,7 +312,6 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
-                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply - 2, plx] = 2;
@@ -343,7 +342,6 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
-                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply, plx + 2] = 2;
@@ -374,7 +372,6 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
-                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply, plx - 2] = 2;
@@ -405,7 +402,6 @@ public class Maze : MonoBehaviour
                 {
                     completed = true;
                     completedManager.completedDisplaying(true);
-                    mainMaster.AddCompletedCount();
                 }
 
                 maze[ply + 2, plx] = 2;

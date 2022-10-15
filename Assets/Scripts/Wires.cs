@@ -560,7 +560,6 @@ public class Wires : MonoBehaviour
             completed = true;
 
             completedManager.completedDisplaying(true);
-            mainMaster.AddCompletedCount();
         }
         else
         {

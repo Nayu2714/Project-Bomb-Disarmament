@@ -8,6 +8,7 @@ TagManager:
   - lower
   - Cut
   - Maze
+  - answer
   layers:
   - Default
   - TransparentFX

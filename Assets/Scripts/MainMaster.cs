@@ -26,6 +26,8 @@ public class MainMaster : MonoBehaviour
 
     private GameObject bsObj;
 
+    [SerializeField] private int tenjiCounter;
+
     public void Start()
     {
         GameObject.Find("Main Camera").GetComponent<Camera>().orthographic = false;
@@ -37,6 +39,8 @@ public class MainMaster : MonoBehaviour
         timer = GameObject.Find("Timer");
 
         completedCount = 0;
+
+        tenjiCounter = 0;
 
         /*********************************************///モジュール生成及び初期化プロセス
 
@@ -107,6 +111,16 @@ public class MainMaster : MonoBehaviour
     public void AddCompletedCount()
     {
         completedCount++;
+    }
+
+    public void AddTenjiCounter()
+    {
+        tenjiCounter++;
+    }
+
+    public int GetTenjiCounter()
+    {
+        return tenjiCounter;
     }
 
     private IEnumerator DelayMethod(float waitTime, System.Action action)
