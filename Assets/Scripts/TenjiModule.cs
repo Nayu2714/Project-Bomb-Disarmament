@@ -111,8 +111,8 @@ public class TenjiModule : MonoBehaviour
         tenji.Add(tenji2);
         tenji.Add(tenji3);
         tenji.Add(tenji4);
-        TenjiNum = Random.Range(0, 4);
-
+        TenjiNum = Random.Range(0, 3);
+        /*
         if (Tenjipattern == false)
         {
             if (TenjiNum == 3)
@@ -120,6 +120,7 @@ public class TenjiModule : MonoBehaviour
                 TenjiNum = 4;
             }
         }
+        */
         Debug.Log("番号=" + TenjiNum);
 
         currentTenji = tenji[TenjiNum];

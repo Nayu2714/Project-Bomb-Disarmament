@@ -4,9 +4,11 @@ using System.Linq;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMaster : MonoBehaviour
 {
+    public static bool allCompleted = false;
     private bool begin = false;
     private bool bombed = false;
 
@@ -91,6 +93,8 @@ public class MainMaster : MonoBehaviour
                     Debug.Log("Bomb!!");
                     bsObj.GetComponent<Image>().color = new Color(0f, 0f, 0f, 1f);
                     bombed = true;
+                    allCompleted = false;
+                    Invoke("LoadTitle", 5f);
                     return;
                 }
 
@@ -98,6 +102,8 @@ public class MainMaster : MonoBehaviour
                 {
                     Debug.Log("AllClear!!");
                     bombed = true;
+                    allCompleted = true;
+                    Invoke("LoadTitle", 5f);
                     return;
                 }
             }
@@ -127,5 +133,10 @@ public class MainMaster : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         action();
+    }
+
+    private void LoadTitle()
+    {
+        SceneManager.LoadScene("Result");
     }
 }

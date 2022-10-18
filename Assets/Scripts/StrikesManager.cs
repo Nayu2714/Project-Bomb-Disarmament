@@ -21,6 +21,7 @@ public class StrikesManager : MonoBehaviour
     public void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        strikes = 0;
     }
 
     public void Update()
